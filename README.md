@@ -47,6 +47,9 @@ sudo apt upgrade
 
 sudo apt install ros-galactic-desktop
 sudo apt install ros-dev-tools
+
+# Add ~/.bashrc
+source /opt/ros/galactic/setup.bash
 ```
 2. [Install  ROS  2 Dev Tools](https://github.com/autowarefoundation/autoware/tree/galactic/ansible/roles/ros2_dev_tools)
 ```sh
@@ -135,10 +138,22 @@ sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/
 sudo apt-get update
 wget https://developer.download.nvidia.com/compute/cuda/11.6.0/local_installers/cuda_11.6.0_510.39.01_linux.run
 sudo sh cuda_11.6.0_510.39.01_linux.run
+
+# Add ~/.bashrc
+export PATH=/usr/local/cuda-11.6/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.6/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 ```
 9. [Install Nvidia cuDNN and TensorRT](https://github.com/autowarefoundation/autoware/tree/galactic/ansible/roles/tensorrt)
 ```sh
 # Taken from: https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing
+
+[# Install cudnn-linux-x86_64-8.4.1.50_cuda11.6-archive.tar.xz](https://developer.nvidia.com/rdp/cudnn-archive)
+unxz cudnn-linux-x86_64-8.4.1.50_cuda11.6-archive.tar.xz
+tar -xvf cudnn-linux-x86_64-8.4.1.50_cuda11.6-archive.tar
+
+sudo cp cudnn-linux-x86_64-8.4.1.50_cuda11.6-archive/include/* /usr/local/cuda-11.6/include
+sudo cp -P cudnn-linux-x86_64-8.4.1.50_cuda11.6-archive/lib/* /usr/local/cuda-11.6/lib64
+sudo chmod a+r /usr/local/cuda-11.6/lib64/libcudnn*
 
 sudo apt-get install libcudnn8=${cudnn_version} libcudnn8-dev=${cudnn_version}
 sudo apt-mark hold libcudnn8 libcudnn8-dev
