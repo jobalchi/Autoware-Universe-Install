@@ -170,6 +170,7 @@ mkdir -p src
 vcs import src < autoware.repos
 ```
 [**Install Lanelet2 lib from github!**](https://github.com/fzi-forschungszentrum-informatik/Lanelet2)
+
 2. Install dependent ROS & External packages
 ```sh
 sudo apt install ros-galactic-diagnostic-updater ros-galactic-osrf-testing-tools-cpp ros-galactic-ros-testing ros-galactic-tensorrt-cmake-module ros-galactic-tvm-vendor ros-galactic-rqt-robot-monitor ros-galactic-pcl-ros ros-galactic-radar-msgs ros-galactic-xacro ros-galactic-topic-tools ros-galactic-octomap ros-galactic-behaviortree-cpp-v3 ros-galactic-rosbridge-server ros-galactic-filters ros-galactic-nav2-msgs ros-galactic-geographic-msgs ros-galactic-point-cloud-msg-wrapper ros-galactic-usb-cam ros-galactic-nav2-costmap-2d ros-galactic-octomap-msgs ros-galactic-osqp-vendor ros-galactic-velodyne-pointcloud ros-galactic-ament-clang-format ros-galactic-diagnostic-aggregator ros-galactic-mrt-cmake-modules ros-galactic-cudnn-cmake-module ros-galactic-rqt-runtime-monitor ros-galactic-ublox-gps ros-galactic-osrf-testing-tools-cpp
